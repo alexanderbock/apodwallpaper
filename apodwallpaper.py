@@ -22,7 +22,7 @@ import sys
 import time
 import urllib
 from ctypes import windll
-from win32con import SPI_SETDESKWALLPAPER
+from win32con import *
 
 wallpaperFileName = "background.jpg"
 apodURLPrefix = "http://apod.nasa.gov/apod/"
