@@ -42,6 +42,7 @@ else:
     path = os.getcwd()
     
 wallpaperPath = os.path.join(path, wallpaperFileName)
+print "Wallpaper Path: " , wallpaperPath
 
 # Check if we have the current wallpaper in the path by checking the timestamp of that file
 if (os.path.exists(wallpaperPath)):
@@ -52,6 +53,8 @@ if (os.path.exists(wallpaperPath)):
     currentDay = currentTime[7]
     currentYear = currentTime[0]
     
+    print "Last Modified: " , lastModifiedDay , lastModifiedYear
+    print "Current: " , currentDay , currentYear
     if (lastModifiedDay == currentDay and lastModifiedYear == currentYear):
         exit()
     
@@ -62,7 +65,8 @@ indexFile.close()
 
 # Parse image position
 # TODO: proper parsing instead of assuming constant position
-correctLine = indexText[28]
+correctLine = indexText[29]
+print "Line with wallpaper: ", correctLine
 imageURL = correctLine[9:-2]
 imageFile = open(wallpaperPath, 'wb')
 imageFile.write(urllib.urlopen(apodURLPrefix + imageURL).read())
